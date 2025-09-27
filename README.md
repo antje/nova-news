@@ -226,10 +226,13 @@ curl 'http://localhost:8000/api/search_jobs/{job_id}/results'
 
 ### **MCP Integration**
 ```python
-# Use with Claude Desktop or other MCP-compatible clients
+# Use with Claude Desktop, Cursor, Kiro, or other MCP-compatible clients
 # The MCP server exposes search_news tool for AI assistants
 search_news(topic="machine learning", sites=["latent_space"], max_items_per_site=5)
 ```
+
+<img width="2057" height="2191" alt="image" src="https://github.com/user-attachments/assets/fd84322f-af1d-444b-81cb-f97ea572ccf2" />
+
 
 ## 🔧 Technical Implementation
 
