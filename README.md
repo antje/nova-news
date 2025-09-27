@@ -4,6 +4,11 @@
 
 NovaNews is a comprehensive news search and monitoring system that demonstrates the Nova Act SDK's capabilities for building production-ready applications that perform actions within a web browser. It intelligently searches AI newsletters and blogs in parallel, providing both real-time and asynchronous access to the latest AI news and insights.
 
+<img width="1674" height="886" alt="image" src="https://github.com/user-attachments/assets/58bde53e-f265-459e-b533-25de1cbf3149" />
+
+<img width="1686" height="1820" alt="image" src="https://github.com/user-attachments/assets/da18487c-15da-4f4a-93db-4d71dde42550" />
+
+
 ## 🎯 Key Capabilities
 
 This project demonstrates:
@@ -16,6 +21,10 @@ This project demonstrates:
 - **Production-ready error handling** and recovery strategies
 - **Dual execution modes** for Nova Act: local Playwright automation or Amazon Bedrock AgentCore Browser tool
 - **Optional Slack webhooks** that announce completed jobs with rich previews
+
+
+<img width="2316" height="1676" alt="image" src="https://github.com/user-attachments/assets/184460c0-a971-4189-befe-3e9e48582f91" />
+
 
 ## 🏗️ Architecture
 
@@ -88,6 +97,10 @@ NovaNews now supports two ways to run the Nova Act browser workflow:
 - `local` (default): Launches Nova Act sessions on your machine using the bundled Playwright runtime.
 - `agentcore`: Proxies Nova Act through the Amazon Bedrock AgentCore Browser tool so automation runs inside AWS-managed sandboxes.
 
+<img width="2122" height="494" alt="image" src="https://github.com/user-attachments/assets/4e11a70b-0866-4df6-a320-c77443080a66" />
+
+
+
 ### Switch Modes
 
 Set `NOVANEWS_BROWSER_MODE` in your `.env` file or shell:
@@ -154,6 +167,9 @@ NOVANEWS_ACT_RESOLVE_TIMEOUT_SECONDS=60
 - **Site Configuration**: Toggle active/inactive status and set default sources
 - **Real-time Updates**: Live job monitoring with WebSocket integration
 - **Statistics**: Job completion rates and result summaries
+
+<img width="1686" height="1644" alt="image" src="https://github.com/user-attachments/assets/7d5ef794-2696-4f8b-a526-c647bef98d55" />
+
 
 ### **Production Architecture**
 - FastAPI backend with WebSocket support and async capabilities
