@@ -320,7 +320,7 @@ nova-news/
 ├── db/                # Database schema and migrations
 ├── logs/              # Application logs
 ├── .run/              # Runtime PID files
-├── novanews.py        # Core scraping logic (Nova Act)
+├── novanews.py        # Core web action logic (Nova Act)
 ├── start.sh           # Unified startup script
 ├── stop.sh            # Unified shutdown script
 └── purge.sh           # Database reset script
@@ -345,7 +345,7 @@ nova-news/
 5. The new source will be immediately available for searches
 
 ### **Add More News Sources (Code):**
-NovaNews pulls active sites from the `news_sites` table. Seed additional defaults with an `INSERT` into that table or pass a custom `available_sites` list to `search_articles_by_topic` when driving the scraper directly.
+NovaNews pulls active sites from the `news_sites` table. Seed additional defaults with an `INSERT` into that table or pass a custom `available_sites` list to `search_articles_by_topic` when driving the news search directly.
 
 ### **Extend Database Schema:**
 ```sql
@@ -390,7 +390,7 @@ class SearchJobRequest(BaseModel):
 - **Database**: PostgreSQL with full ACID compliance and live logging
 - **API Endpoints**: 12+ REST endpoints + WebSocket for real-time updates
 - **Admin Features**: Full job and site management via web dashboard
-- **Response Time**: < 2s for cached results, 30-60s for live scraping
+- **Response Time**: < 2s for cached results, 30-60s for live search
 
 ## 🎯 Technical Highlights
 
