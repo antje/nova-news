@@ -376,15 +376,5 @@ class SearchJobRequest(BaseModel):
 4. (Optional) Tweak `SLACK_WEBHOOK_USERNAME`, `SLACK_WEBHOOK_ICON_EMOJI`, or `SLACK_WEBHOOK_PREVIEW_LIMIT` to customize the message.
 5. Completed search jobs now post a rich summary with the top results into the configured channel.
 
-## 🎯 Technical Highlights
-
-1. **"Demonstrates production-ready async job processing..."**
-2. **"Shows Nova Act SDK's intelligent capabilities for performing actions within a web browser..."**
-3. **"Database persistence ensures no data loss during failures..."**
-4. **"WebSocket streaming provides real-time user feedback with no polling..."**
-5. **"Admin dashboard enables full system management and monitoring..."**
-6. **"MCP integration makes it AI assistant-ready out of the box..."**
-
 ---
 
-**A complete news search system powered by Nova Act! 📰🚀**
