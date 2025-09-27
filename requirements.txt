@@ -1,0 +1,21 @@
+# Core SDK
+nova-act==2.1.36.0
+
+# API server
+fastapi==0.117.1
+uvicorn[standard]==0.37.0
+
+# Data models
+pydantic==2.11.9
+
+# AWS Bedrock integration
+boto3==1.40.40
+bedrock-agentcore==0.1.5
+
+# Environment variables
+python-dotenv==1.1.1
+
+# Database
+sqlalchemy==2.0.43
+psycopg2-binary==2.9.10
+asyncpg==0.30.0
