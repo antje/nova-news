@@ -73,7 +73,12 @@ def append_job_log(db: Session, job_id: str, message: str) -> None:
         {"job_id": job_id, "line_number": line_number, "message": message},
     )
     db.commit()
-    websocket_notifier.notify_job_update_sync(job_id, "log", message)
+    # Notify with both message and line_number to allow clients to dedupe
+    websocket_notifier.notify_job_update_sync(
+        job_id,
+        "log",
+        {"message": message, "line_number": int(line_number)},
+    )
 
 
 def get_job_logs(db: Session, job_id: str, from_index: int = 0) -> List[str]:
@@ -86,6 +91,22 @@ def get_job_logs(db: Session, job_id: str, from_index: int = 0) -> List[str]:
     )
     result = db.execute(query, {"job_id": job_id, "from_index": from_index}).fetchall()
     return [row[0] for row in result]
+
+
+def get_job_logs_with_index(db: Session, job_id: str, from_index: int = 0):
+    """Return list of { line_number, message } for websocket catch-up.
+
+    from_index is a line_number threshold; only logs with line_number > from_index are returned.
+    """
+    query = text(
+        """
+        SELECT line_number, message FROM job_logs
+        WHERE job_id = :job_id AND line_number > :from_index
+        ORDER BY line_number
+        """
+    )
+    rows = db.execute(query, {"job_id": job_id, "from_index": from_index}).fetchall()
+    return [{"line_number": int(r[0]), "message": r[1]} for r in rows]
 
 
 def get_job_logs_count(db: Session, job_id: str) -> int:

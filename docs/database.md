@@ -58,7 +58,7 @@ CREATE TABLE articles (
   summary TEXT NOT NULL,
   url TEXT UNIQUE NOT NULL,
   source TEXT NOT NULL,
-  scraped_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  found_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 -- Admin-managed news sites
@@ -166,7 +166,7 @@ Existing optimized indexes:
 
 ```sql
 -- Article recency per source
-CREATE INDEX IF NOT EXISTS idx_articles_source_scraped_at ON articles (source, scraped_at DESC);
+CREATE INDEX IF NOT EXISTS idx_articles_source_found_at ON articles (source, found_at DESC);
 
 -- News site management
 CREATE INDEX IF NOT EXISTS idx_news_sites_active ON news_sites (is_active);

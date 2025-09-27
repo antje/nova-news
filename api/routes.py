@@ -23,6 +23,7 @@ from .jobs import (
     get_all_search_jobs,
     get_job,
     get_job_logs,
+    get_job_logs_with_index,
     get_job_logs_count,
     get_job_results,
     get_news_site_by_id,
@@ -242,8 +243,9 @@ async def websocket_logs(websocket: WebSocket, job_id: str) -> None:
             json.dumps({"type": "status", "data": {"status": job.status, "error": job.error}})
         )
 
-        for log in get_job_logs(db, job_id, 0):
-            await websocket.send_text(json.dumps({"type": "log", "data": log}))
+        # Send catch-up logs with indices to allow client-side dedupe
+        for entry in get_job_logs_with_index(db, job_id, 0):
+            await websocket.send_text(json.dumps({"type": "log", "data": entry}))
 
         if job.status == "completed":
             try:

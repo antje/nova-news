@@ -7,10 +7,10 @@ CREATE TABLE IF NOT EXISTS articles (
   summary TEXT NOT NULL,
   url TEXT UNIQUE NOT NULL,
   source TEXT NOT NULL,
-  scraped_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  found_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX IF NOT EXISTS idx_articles_source_scraped_at ON articles (source, scraped_at DESC);
+CREATE INDEX IF NOT EXISTS idx_articles_source_found_at ON articles (source, found_at DESC);
 
 CREATE TABLE IF NOT EXISTS search_jobs (
   id UUID PRIMARY KEY,

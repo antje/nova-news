@@ -234,7 +234,7 @@ search_news(topic="machine learning", sites=["latent_space"], max_items_per_site
 search_jobs (id, topic, sites, status, created_at, updated_at)
 job_logs (id, job_id, line_number, message, created_at)
 job_results (id, job_id, title, summary, url, source)
-articles (id, title, summary, url, source, scraped_at)
+articles (id, title, summary, url, source, found_at)
 news_sites (id, name, code, url, is_active, is_default, created_at, updated_at)
 ```
 

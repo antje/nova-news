@@ -87,7 +87,7 @@ job_logs (id, job_id, line_number, message, created_at)
 job_results (id, job_id, article_id, title, summary, url, source)
 
 -- Article storage  
-articles (id, title, summary, url, source, scraped_at)
+articles (id, title, summary, url, source, found_at)
 
 -- Admin-managed sites
 news_sites (id, name, code, url, is_active, is_default, created_at, updated_at)

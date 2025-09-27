@@ -276,6 +276,7 @@ export default function HomePage() {
   const [jobId, setJobId] = useState<string | null>(null);
   const [jobStatus, setJobStatus] = useState<"idle" | "queued" | "running" | "completed" | "failed">("idle");
   const [logs, setLogs] = useState<string[]>([]);
+  const lastLogIndexRef = useRef<number>(0);
   const wsRef = useRef<WebSocket | null>(null);
   const [lastJobId, setLastJobId] = useState<string | null>(null);
   const [apiStatus, setApiStatus] = useState<"unknown" | "available" | "unavailable">("unknown");
@@ -467,11 +468,22 @@ export default function HomePage() {
           
           switch (message.type) {
             case "log": {
-              const text = String(message.data || "");
-              setLogs((prev) => {
-                if (prev.length > 0 && prev[prev.length - 1] === text) return prev;
-                return [...prev, text];
-              });
+              // Support both legacy string and new { message, line_number }
+              const payload = message.data;
+              if (payload && typeof payload === "object" && typeof payload.line_number === "number") {
+                const idx = payload.line_number as number;
+                const text = String(payload.message || "");
+                if (idx > lastLogIndexRef.current) {
+                  lastLogIndexRef.current = idx;
+                  setLogs((prev) => [...prev, text]);
+                }
+              } else {
+                const text = String(payload || "");
+                setLogs((prev) => {
+                  if (prev.length > 0 && prev[prev.length - 1] === text) return prev;
+                  return [...prev, text];
+                });
+              }
               break;
             }
               
@@ -641,10 +653,7 @@ export default function HomePage() {
           </Link>
         </div>
         <p style={{ opacity: 0.8 }}>
-          Search {availableSites.length > 0 
-            ? availableSites.map(site => site.name).join(", ").replace(/, ([^,]*)$/, ", and $1")
-            : "available news sites"
-          } for topic-related posts.
+          Search AI news outlets for topic-related posts.
         </p>
       </header>
       {error && (
