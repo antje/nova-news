@@ -11,7 +11,7 @@ export NOVA_NEWS_API_BASE_URL="${NOVA_NEWS_API_BASE_URL:-http://localhost:8000}"
 export NOVA_NEWS_HTTP_TIMEOUT="${NOVA_NEWS_HTTP_TIMEOUT:-300}"
 
 echo "Launching MCP Inspector (requires Node/npm installed)..."
-npx @modelcontextprotocol/inspector \
+npx --yes @modelcontextprotocol/inspector \
   "python" \
   "$PROJECT_ROOT/mcp/novanews_mcp_server.py"
 
