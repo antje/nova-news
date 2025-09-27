@@ -47,7 +47,7 @@ git clone <repository-url>
 cd nova-news
 cp env.example .env
 # Edit .env to set your NOVA_ACT_API_KEY
-# Optional: set NOVANEWS_BROWSER_MODE=agentcore to run scrapes through Bedrock AgentCore Browser
+# Optional: set NOVANEWS_BROWSER_MODE=agentcore to use Bedrock AgentCore Browser
 ```
 
 ### 2. Start All Services
