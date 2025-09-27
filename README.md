@@ -296,22 +296,6 @@ class SearchJobResponse:
 ./monitor.sh status     # Show service status and health
 ```
 
-### **Service Monitoring:**
-```bash
-# Real-time status check
-./monitor.sh status     # Shows service health, ports, and log file sizes
-
-# Live log monitoring (with color coding)
-./monitor.sh           # Monitor all services simultaneously
-./monitor.sh backend   # Backend API logs only
-./monitor.sh frontend  # Next.js development logs only
-./monitor.sh mcp       # MCP server logs only
-
-# Enhanced monitoring (if multitail is installed)
-brew install multitail  # Optional: for side-by-side log viewing
-./monitor.sh            # Will automatically use multitail for better display
-```
-
 ### **Individual Development:**
 ```bash
 # Backend only
