@@ -376,25 +376,6 @@ class SearchJobRequest(BaseModel):
 4. (Optional) Tweak `SLACK_WEBHOOK_USERNAME`, `SLACK_WEBHOOK_ICON_EMOJI`, or `SLACK_WEBHOOK_PREVIEW_LIMIT` to customize the message.
 5. Completed search jobs now post a rich summary with the top results into the configured channel.
 
-## 🚀 Future Enhancements
-
-- **Smart Categorization**: Auto-classify articles by AI topic (LLMs, Vision, Robotics)
-- **Trend Analysis**: Track topic popularity over time
-- **Email Notifications**: Subscribe to alerts for specific topics
-- **RSS/Webhook Integration**: Real-time feeds for external systems
-- **Advanced Search**: Boolean operators, date ranges, source filtering
-- **Content Deduplication**: Identify and merge similar articles
-
-## 📊 System Metrics
-
-- **News Sources**: 2+ AI sources (extensible via admin panel)
-- **Async Processing**: Background job system with WebSocket notifications
-- **Real-time Updates**: WebSocket streaming with no polling required
-- **Database**: PostgreSQL with full ACID compliance and live logging
-- **API Endpoints**: 12+ REST endpoints + WebSocket for real-time updates
-- **Admin Features**: Full job and site management via web dashboard
-- **Response Time**: < 2s for cached results, 30-60s for live search
-
 ## 🎯 Technical Highlights
 
 1. **"Demonstrates production-ready async job processing..."**
